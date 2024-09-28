@@ -5,7 +5,9 @@ class Program
 {
     static void Main(string[] args)
     {
-        static void main()
+        main();
+    }
+            static void main()
         {
             Displaymessage();
             string username = PromptUserName();
@@ -43,6 +45,4 @@ class Program
         {
             Console.WriteLine($"{username}, the square of your number is {square}");
         }
-        main();
-    }
 }

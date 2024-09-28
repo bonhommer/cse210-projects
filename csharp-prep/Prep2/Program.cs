@@ -11,12 +11,12 @@ class Program
         if (number >= 90)
         {
             letter = "A";
-            Console.WriteLine("Congratulations, you pass the class!");
+            // Console.WriteLine("Congratulations, you pass the class!");
         }
         else if (number >=80)
         {
             letter = "B";
-            Console.WriteLine("Congratulations, you pass the class!");
+            // Console.WriteLine("Congratulations, you pass the class!");
         }
         else
         {
@@ -24,17 +24,17 @@ class Program
             {
                 letter = "C";
 
-                Console.WriteLine("Congratulations, you pass the class!");
+                // Console.WriteLine("Congratulations, you pass the class!");
             }
             else if (number >=60)
             {
                 letter = "D";
 
-                Console.WriteLine("Unfortunately, your grade should be at least 70%. Next time try to do your best");
+                // Console.WriteLine("Unfortunately, your grade should be at least 70%. Next time try to do your best");
             }
             else{
                 letter = "F";
-                Console.WriteLine("Unfortunately, your grade should be at least 70%. Next time try to do your best");
+                // Console.WriteLine("Unfortunately, your grade should be at least 70%. Next time try to do your best");
             }
         }
         int lastDigit = number % 10;
@@ -52,6 +52,14 @@ class Program
             sign = "";
         }
         Console.WriteLine($"Your grade is {letter}{sign}");
+
+        if (number >= 70)
+        {
+            Console.WriteLine("Congratulations, you pass the class!");
+        }
+        else{
+            Console.WriteLine("Unfortunately, your grade should be at least 70%. Next time try to do your best");
+        }
         
     }
 }
