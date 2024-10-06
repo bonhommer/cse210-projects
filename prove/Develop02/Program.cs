@@ -20,7 +20,6 @@ class Program
         prompt.AddPrompt("What should I do to reach my main goal as soon as possible?");
         
         Journal journal = new Journal();
-       
         
         do
         { 
@@ -32,6 +31,8 @@ class Program
             Console.WriteLine("5. Quit");
             Console.Write("what would you like to do? ");
             choice = Console.ReadLine();
+            Console.WriteLine();
+
 
         // if statements to handle the choices of the user
         if (choice == "1" || choice.ToLower() == "write")
@@ -44,6 +45,7 @@ class Program
            Entry newEntry = new Entry(); 
            newEntry._promptText = randomPrompt;
            newEntry._entryText = Console.ReadLine();
+           Console.WriteLine();
 
         // Add the user enter in the journal
            journal.AddEntry(newEntry);
@@ -60,7 +62,6 @@ class Program
             Console.Write("What is the filename? ");
             string fileName = Console.ReadLine();
             journal.loadFromFile(fileName);
-            Console.WriteLine();
         }
 
         else if (choice == "4" || choice.ToLower() == "save")
