@@ -32,21 +32,57 @@ public class Journal
             }
         }
     }
-
-    public void loadFromFile( string file)
+        public void loadFromFile(string fileName)
     {
-        if (File.Exists(file))
+        try
         {
-            string[] lines = File.ReadAllLines(file);
-            foreach (string line in lines)
+            string[] lines = File.ReadAllLines(fileName);
+            Entry newEntry = null;
+
+            for (int i = 0; i < lines.Length; i++)
             {
-                Console.WriteLine(line);
+                string line = lines[i].Trim();
+
+                
+                if (line.StartsWith("Date :"))
+                {
+                    if (newEntry != null)
+                    {
+                        
+                        _entries.Add(newEntry);
+                    }
+
+                  
+                    string[] parts = line.Split(new[] { "- Prompt: " }, StringSplitOptions.None);
+                    if (parts.Length == 2)
+                    {
+                        newEntry = new Entry
+                        {
+                            _date = parts[0].Replace("Date : ", "").Trim(), 
+                            _promptText = parts[1].Trim() 
+                        };
+                    }
+                }
+                else if (newEntry != null)
+                {
+                   
+                    newEntry._entryText += line + Environment.NewLine; 
+                }
+            }
+
+           
+            if (newEntry != null)
+            {
+                _entries.Add(newEntry);
             }
         }
-
-        else
+        catch (FileNotFoundException)
         {
-            Console.WriteLine($"File '{file}' not found.");
+            Console.WriteLine("File not found. Please check the file name and try again.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("An error occurred while loading the journal: " + ex.Message);
         }
     }
 }
