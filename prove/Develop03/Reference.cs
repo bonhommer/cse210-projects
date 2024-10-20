@@ -8,12 +8,21 @@ public class Reference
 
     public Reference(string book, int chapter, int startVerse, int endVerse)
     {
-        _reference = $"{book} {chapter}:{startVerse}-{endVerse}";
+        _book = book;
+        _chapter = chapter;
+        _verse = startVerse;
+        _endVerse = endVerse;
+
+        _reference = $"{_book} {_chapter}:{_verse}-{_endVerse} ";
     }
 
     public Reference(string book, int chapter, int verse)
     {
-        _reference = $"{book} {chapter}:{verse}";
+        _book = book;
+        _chapter = chapter;
+        _verse = verse;
+
+        _reference = $"{_book} {_chapter}:{_verse} ";
     }
 
     public string getDisplayText()

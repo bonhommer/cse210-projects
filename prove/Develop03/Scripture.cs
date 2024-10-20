@@ -31,12 +31,12 @@ public class Scripture
 
     public string getDisplayText()
     {
-        string result = _reference.getDisplayText();
+        string result = _reference.getDisplayText() + " ";
         foreach (Word word in _words)
         {
-            result += word.getDisplayText();
+            result += word.getDisplayText() + " ";
         }
-        return result;
+        return result.Trim();
     }
 
     public bool isCompletlyHidden()
@@ -45,10 +45,10 @@ public class Scripture
         {
             if(!word.isHidden())
             {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
 
